@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{848D4BBB-1607-4B84-B223-C5BAFBCF1C93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TopHtmlParser</RootNamespace>
+    <AssemblyName>TopHtmlParser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Gear.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\ThirdParty\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop">
+      <HintPath>..\ThirdParty\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Misc\ConfigHelp.cs" />
+    <Compile Include="Misc\ParseConfig.cs" />
+    <Compile Include="ParseTop\CommAP2013.cs" />
+    <Compile Include="ParseTop\HtmlParseResult.cs" />
+    <Compile Include="ParseTop\TopBuilderAP2013.cs" />
+    <Compile Include="ParseTop\TopBuilderAP2012.cs" />
+    <Compile Include="ParseTop\TopBuilderAS2011.cs" />
+    <Compile Include="UI\FrmParseResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmParseResults.Designer.cs">
+      <DependentUpon>FrmParseResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmTopParseSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmTopParseSettings.Designer.cs">
+      <DependentUpon>FrmTopParseSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmOfflineSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmOfflineSource.Designer.cs">
+      <DependentUpon>FrmOfflineSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmOnlineSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmOnlineSource.Designer.cs">
+      <DependentUpon>FrmOnlineSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmSourceSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmSourceSelection.Designer.cs">
+      <DependentUpon>FrmSourceSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ParseStyle\StyleParser.cs" />
+    <Compile Include="Misc\SaveHelper.cs" />
+    <Compile Include="ParseTop\UserComment.cs" />
+    <EmbeddedResource Include="UI\FrmParseResults.resx">
+      <DependentUpon>FrmParseResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmTopParseSettings.resx">
+      <DependentUpon>FrmTopParseSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmOfflineSource.resx">
+      <DependentUpon>FrmOfflineSource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmOnlineSource.resx">
+      <DependentUpon>FrmOnlineSource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmSourceSelection.resx">
+      <DependentUpon>FrmSourceSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Calc\TopCalc.csproj">
+      <Project>{EB7D6E05-D49C-4154-8943-2C5ACE17485A}</Project>
+      <Name>TopCalc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
