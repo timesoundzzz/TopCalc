@@ -120,9 +120,10 @@ namespace TopHtmlParser.UI
                 }
                 else
                 {
-                    Cursor = Cursors.Default;
+                    Cursor.Current = Cursors.Default;
                     if (_allTops.Count > 0)
                     {
+                        Hide();
                         HtmlParseResult parseResult = SaveHelper.GetHtmlParseResult(_allTops, _parseConfig);
                         FrmParseResults frmParseResults = new FrmParseResults(parseResult);
                         frmParseResults.ShowDialog();
@@ -139,7 +140,6 @@ namespace TopHtmlParser.UI
         {
             try
             {
-                Hide();
                 GetSourceAndFindTops();
             }
             catch (Exception ex)
@@ -151,7 +151,7 @@ namespace TopHtmlParser.UI
 
         private void GetSourceAndFindTops()
         {
-            Cursor = Cursors.WaitCursor;
+            Cursor.Current = Cursors.WaitCursor;
             _parseConfig.OnlineSource = _txtSourcePath.Text;
             _parseConfig.CurrentConfiguration.Save();
             string url = _txtSourcePath.Text;
@@ -160,9 +160,11 @@ namespace TopHtmlParser.UI
                 string htmlCode = GetHtmlCode(url);
                 if (htmlCode != string.Empty)
                 {
+                    Cursor.Current = Cursors.Default;
                     UpdateSettings(_parseConfig);
+                    Cursor.Current = Cursors.WaitCursor;
                     FindTops(url, _parseConfig);
-                    MessageBox.Show(@"Обработка закончена!");
+                    MessageBox.Show(@"Обработка завершена!");
                 }
                 else
                 {

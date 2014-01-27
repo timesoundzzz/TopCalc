@@ -142,17 +142,17 @@
             // 
             this._btnSaveAsTxt.Location = new System.Drawing.Point(12, 19);
             this._btnSaveAsTxt.Name = "_btnSaveAsTxt";
-            this._btnSaveAsTxt.Size = new System.Drawing.Size(75, 23);
+            this._btnSaveAsTxt.Size = new System.Drawing.Size(100, 25);
             this._btnSaveAsTxt.TabIndex = 1;
-            this._btnSaveAsTxt.Text = "Сохранить";
+            this._btnSaveAsTxt.Text = "Сохранить txt";
             this._btnSaveAsTxt.UseVisualStyleBackColor = true;
             this._btnSaveAsTxt.Click += new System.EventHandler(this._btnSaveAsTxt_Click);
             // 
             // _btnClose
             // 
-            this._btnClose.Location = new System.Drawing.Point(489, 19);
+            this._btnClose.Location = new System.Drawing.Point(464, 19);
             this._btnClose.Name = "_btnClose";
-            this._btnClose.Size = new System.Drawing.Size(75, 23);
+            this._btnClose.Size = new System.Drawing.Size(100, 25);
             this._btnClose.TabIndex = 0;
             this._btnClose.Text = "Закрыть";
             this._btnClose.UseVisualStyleBackColor = true;
@@ -167,6 +167,7 @@
             this.Name = "FrmParseResults";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты обработки";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmParseResults_FormClosing);
             this.panel1.ResumeLayout(false);
             this._gbView.ResumeLayout(false);
             this._gbViewKind.ResumeLayout(false);

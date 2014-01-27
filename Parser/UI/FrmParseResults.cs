@@ -80,7 +80,7 @@ namespace TopHtmlParser.UI
                     textOut = _htmlParseResult.IncorrectTopsByUserRegDate;
                     fileName = "incorrectTopsByUserRegDate.txt";
                 }
-                else 
+                else
                 {
                     textOut = _htmlParseResult.IncorrectDoubleTops;
                     fileName = "incorrectDoubleTops.txt";
@@ -109,6 +109,22 @@ namespace TopHtmlParser.UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FrmParseResults_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool isCanClose = true;
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show(@"Закрыть?", @"Подтверждение закрытия",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                isCanClose = dialogResult == DialogResult.Yes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            e.Cancel = !isCanClose;
         }
     }
 }

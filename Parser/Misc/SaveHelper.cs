@@ -8,12 +8,6 @@ namespace TopHtmlParser.Misc
 {
     public static class SaveHelper
     {
-        public static void SaveTops(List<UserComment> tops, ParseConfig parseConfig)
-        {
-            var htmlParseResult = GetHtmlParseResult(tops, parseConfig);
-
-        }
-
         public static HtmlParseResult GetHtmlParseResult(List<UserComment> tops, ParseConfig parseConfig)
         {
             HtmlParseResult htmlParseResult = new HtmlParseResult();

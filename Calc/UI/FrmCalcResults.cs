@@ -24,7 +24,7 @@ namespace TopCalc.UI
         public FrmCalcResults(Settings settings)
         {
             InitializeComponent();
-            Cursor = Cursors.WaitCursor;
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 _isInit = true;
@@ -36,7 +36,7 @@ namespace TopCalc.UI
             {
                 MessageBox.Show(ex.Message);
             }
-            Cursor = Cursors.Default;
+            Cursor.Current = Cursors.Default;
         }
 
 
